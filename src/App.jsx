@@ -1,28 +1,37 @@
-import { useState } from 'react'
+import Hero from './components/Hero';
+import Programs from './components/Programs';
+import CampusLife from './components/CampusLife';
+import Admissions from './components/Admissions';
+import Footer from './components/Footer';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function Navbar() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
+    <header className="fixed top-0 inset-x-0 z-40 bg-white/70 backdrop-blur border-b border-gray-200">
+      <div className="container mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="#" className="font-extrabold tracking-tight text-gray-900">Redridge</a>
+        <nav className="hidden md:flex items-center gap-6 text-sm">
+          <a href="#programs" className="text-gray-700 hover:text-red-700">Programs</a>
+          <a href="#admissions" className="text-gray-700 hover:text-red-700">Admissions</a>
+          <a href="#campus" className="text-gray-700 hover:text-red-700">Campus</a>
+          <a href="#contact" className="text-gray-700 hover:text-red-700">Contact</a>
+        </nav>
+        <a href="#admissions" className="inline-flex items-center rounded-xl bg-red-600 text-white px-4 py-2 text-sm font-semibold shadow-sm hover:bg-red-700">Apply</a>
       </div>
-    </div>
-  )
+    </header>
+  );
 }
 
-export default App
+export default function App() {
+  return (
+    <div className="min-h-screen bg-white text-gray-900">
+      <Navbar />
+      <main className="pt-16">
+        <Hero />
+        <Programs />
+        <div id="campus"><CampusLife /></div>
+        <Admissions />
+      </main>
+      <Footer />
+    </div>
+  );
+}
